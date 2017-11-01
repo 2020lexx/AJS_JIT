@@ -1,0 +1,32 @@
+<div class="wrapper wrapper-content animated fadeInDown no-padding">
+      <div id="delivery_chart" class="ibox no-margins" >
+                <div class="ibox-content" style="height:280px;">
+
+                <div ibox-tools-full-screen callback-fn="callbackFn(arg1)"></div> 
+                <div ui-view></div>
+                  <div class="btn-group" style="float:left;padding-right:30px;text-align:center"><i class="fa fa-location-arrow" style="font-size:20px"></i> <br><br> 
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'All'" uncheckable="">ALL</label><br>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'1'" uncheckable="">1</label><br>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'2'" uncheckable="">2</label><br> 
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'3'" uncheckable="">3</label> 
+                    </div>
+                                
+                    <img src="img/dly.jpg" width="75%" > 
+                </div>
+                </div>           
+                       
+                 <div id="delivery_map" class="ibox m-t-xs" >
+                <div class="ibox-content" >  
+                <div ibox-tools-full-screen callback-fn="callbackFn(arg1)""></div><div class="btn-group" style="float:left;padding-right:10px;text-align:center"> <i class="fa fa-map-marker" style="font-size:30px"></i><br><br>  
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'1'" uncheckable=""><i class="fa fa-circle text-navy"></i> 1</label><br>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'2'" uncheckable=""><i class="fa fa-circle text-navy"></i> 2</label><br> 
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'3'" uncheckable=""><i class="fa fa-circle text-navy"></i> 3</label> 
+                    </div>
+                    <section id="map3" ng-controller="GoogleMaps">
+                        <div ui-map="myMap3" ui-options="mapOptions3" class="google-map"></div>
+                    </section> 
+                   
+                </div> 
+               
+            </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="wrapper wrapper-content animated fadeInDown no-padding">
+      <div id="incoming_map" class="ibox">
+                <div class="ibox-content"> 
+                <div ibox-tools-full-screen callback-fn="callbackFn(arg1)"></div>
+            <div class="btn-group" style="padding-bottom:10px">
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'Map'" uncheckable="">Map</label>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'StreetView'" uncheckable="">Street View</label> 
+                    </div><br>
+                    <section id="map3" ng-controller="GoogleMaps">
+                        <div ui-map="myMap3" ui-options="mapOptions3" class="q1-google-map"></div>
+                    </section> 
+                   
+                </div> 
+               
+            </div>
+</div>

@@ -1,0 +1,290 @@
+ 
+<div class="wrapper wrapper-content   " ng-controller="Q2Ctrl as Q2">
+
+    <div class="row">
+        <div class="col-lg-5   "> 
+         <div class="row">
+           <h2>Q2 In Production </h2>
+           <!--
+                     <div class="btn-group" style="padding-bottom:10px;padding-top:10px">
+                        <label style="font-weight:100"  uib-tooltip="see All" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'AllQ2'" uncheckable="" ng-click="view_Q2all()"><i class="fa fa-globe"></i></label>
+                      <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'Assembly'" uncheckable="" ng-click="view_Q2a()">
+                    <counter-queue-q2a></counter-queue-q2a> Assembly</label>
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel2" uib-btn-radio="'Production'" uncheckable="" ng-click="view_Q2b()"><counter-queue-q2b></counter-queue-q2b> Production</label> 
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'Done'" uncheckable="" ng-click="view_Q2c()"> 
+                    <counter-queue-q2c></counter-queue-q2c> Done</label>
+                    
+                    </div> -->
+            </div>
+            <div class="row">
+              <div class="col-lg-4 no-margins no-padding" style="margin-right: 0.5px !important; margin-left: -1px !important;">
+             <table class="table  table-queue table-hover no-margins table-bg-1"    >
+                    <thead>
+                                <tr><th colspan="2"  class="table-first-th"><counter-queue-q2aw></counter-queue-q2aw><counter-queue-q2a></counter-queue-q2a><span class="table-title">Assembly</span></th></tr>
+                    <tr>
+                        <th><div class="no-margins" ng-click="set_orderQ2='tas';set_order_attQ2=false ">Ord.<i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ2='ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ2} " class="fa fa-level-down"></i></p></div>
+                        </th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                          
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                      <tr class="table-bg-2" ng-repeat="Q2 in table_queueQ2aw | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2aw">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id}}</small></div>
+                          <div><small class="label label-info">{{Q2.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.dlv_addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    <tr  ng-repeat="Q2 in table_queueQ2a | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2a">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id}}</small></div>
+                          <div><small class="label label-info">{{Q2.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.dlv_addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+               </div>
+                <div class="col-lg-4 no-margins no-padding" style="    margin-right: 0.5px !important; ">
+             <table class="table table-queue table-hover no-margins"   ng-model="table_queueQ2" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q2bw></counter-queue-q2bw><counter-queue-q2b></counter-queue-q2b><span class="table-title">Production</span></th></tr>
+                    <tr>
+                        <th> <div class="no-margins" ng-click="set_orderQ2='task_id';set_order_attQ2=false ">Ord.<i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ2='ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ2} " class="fa fa-level-down"></i></p></div></th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                          
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr class="table-bg-2" ng-repeat="Q2 in table_queueQ2bw | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2bw">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id}}</small></div>
+                          <div><small class="label label-info">{{Q2.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.dlv_addr}}  </td>
+                          
+                       
+                    </tr>
+                    <tr  ng-repeat="Q2 in table_queueQ2b | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id}}</small></div>
+                          <div><small class="label label-info">{{Q2.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.dlv_addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+               </div>
+                 <div class="col-lg-4 no-padding no-margins">
+             <table class="table table-queue table-hover no-margins table-bg-1"   ng-model="table_queueQ2" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q2cw></counter-queue-q2cw><counter-queue-q2c></counter-queue-q2c><span class="table-title">PT Delivery</span></th></tr>
+                    <tr>
+                        <th><div class="no-margins" ng-click="set_orderQ2='task_id';set_order_attQ2=false ">Ord.<i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ2='ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ2} " class="fa fa-level-down"></i></p></div></th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                          
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr class="table-bg-2" ng-repeat="Q2 in table_queueQ2cw | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2cw">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id}}</small></div>
+                          <div><small class="label label-info">{{Q2.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.dlv_addr}}  </td>
+                          
+                       
+                    </tr>
+                    <tr  ng-repeat="Q2 in table_queueQ2c | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id}}</small></div>
+                          <div><small class="label label-info">{{Q2.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.dlv_addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+               </div> 
+               </div> 
+           <!-- <h2>Q2 In Production </h2>
+                     <div class="btn-group" style="padding-bottom:10px;padding-top:10px">
+                        <label style="font-weight:100"  uib-tooltip="see All" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'AllQ2'" uncheckable="" ng-click="view_Q2all()"><i class="fa fa-globe"></i></label>
+                      <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'Assembly'" uncheckable="" ng-click="view_Q2a()">
+                    <counter-queue-q2a></counter-queue-q2a> Assembly</label>
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel2" uib-btn-radio="'Production'" uncheckable="" ng-click="view_Q2b()"><counter-queue-q2b></counter-queue-q2b> Production</label> 
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'Done'" uncheckable="" ng-click="view_Q2c()"> 
+                    <counter-queue-q2c></counter-queue-q2c> Done</label>
+                    
+                    </div> 
+   
+            <table class="table table-hover no-margins"   ng-model="table_queueQ2" >
+                    <thead>
+                    <tr>
+                        <th  ng-click="set_orderQ2='id';set_order_attQ2=false ">Order # <i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                   <th  ng-click=" set_orderQ2='ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i> TTD <i ng-class="{'hidden': !set_order_attQ2 } " class="fa fa-level-down"></i></p></th>        
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="Q2 in table_queueQ2 | orderBy:set_orderQ2" ng-mouseover="hover_item(Q2.id)" ng-mouseleave="leave_item(Q2.id)" ng-click="show_single_task(Q2.id)">
+                        <td>
+                            <small>   <span class="label label-primary">{{Q2.id}}</span></small>
+ 
+                        </td>
+                         <td ng-show="filterQ2==true"> {{Q2.prd}}  </td>
+                        <td ng-show="filterQ2==false"> {{Q2.addr}}  </td>
+                        <td>
+
+
+                           <h3 class="text-primary" style="margin-bottom:2px"> {{Q2.ttd}}</h3>
+                            <small> 21:34</small>
+                            <small class="label label-warning">+04'</small>
+                         </td>     
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+         -->
+        </div> 
+        <div class="col-lg-7 ">
+              <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Q2 Queue </h5>
+                </div>
+                   <div class="ibox-content" >
+                        
+                     <svg height="400" width="800" id="Q2_svg_path"> 
+ 
+                       <g class="grid x-grid" id="xGrid">
+                          <line x1="10" x2="800" y1="370" y2="370"></line>
+                        </g>
+                         <g class="x0-grid" id="x1Grid">
+                          <line x1="10" x2="800" y1="312" y2="312"></line>
+                        </g>
+                         <g class="x0-grid" id="x2Grid">
+                          <line x1="10" x2="800" y1="282" y2="282"></line>
+                        </g>
+                         <g class="x0-grid" id="x3Grid">
+                          <line x1="10" x2="800" y1="240" y2="240"></line>
+                        </g>
+                         <g class="x0-grid" id="x4Grid">
+                          <line x1="10" x2="800" y1="210" y2="210"></line>
+                        </g>
+                         <g class="x0-grid" id="x5Grid">
+                          <line x1="10" x2="800" y1="168" y2="168"></line>
+                        </g>
+                         <g class="x0-grid" id="x6Grid">
+                          <line x1="10" x2="800" y1="138" y2="138"></line>
+                        </g>
+                         <g class="x0-grid" id="x7Grid">
+                          <line x1="10" x2="800" y1="96" y2="96"></line>
+                        </g>
+                         <g class="x0-grid" id="x8Grid">
+                          <line x1="10" x2="800" y1="66" y2="66"></line>
+                        </g>
+
+                      <g class="grid y-grid" id="yGrid">
+                          <line x1="10" x2="10" y1="5" y2="370"></line>
+                        </g>
+                         
+                      <g class="grid y-grid" id="yGrid">
+                          <line x1="310" x2="310" y1="5" y2="370"></line>
+                        </g>
+                    
+                      <g class="grid y-grid" id="yGrid">
+                          <line x1="460" x2="460" y1="5" y2="370"></line>
+                        </g>
+                    
+                      <g class="grid y-grid" id="yGrid">
+                          <line x1="610" x2="610" y1="5" y2="370"></line>
+                        </g>
+                    
+                      <g class="grid y-grid" id="yGrid">
+                          <line x1="760" x2="760" y1="5" y2="370"></line>
+                        </g>
+                    <g class="grid y-grid" id="y0Grid">
+                          <line x1="160" x2="160" y1="5" y2="370"></line>
+                        </g>
+                          <g class="labels x-labels">
+                         <text x="55" y="385">Time to Start Task</text>
+                           <text x="160" y="385">0:00</text>
+                          <text x="310" y="385">0:05</text>
+                          <text x="460" y="385">0:10</text>
+                          <text x="610" y="385">0:15</text>
+                          <text x="760" y="385">0:20</text>
+                          <text x="920" y="385">0:25</text>
+                          <text x="35" y="400">Local Time</text>
+                          <text id="t0" x="160" y="400">0:00</text>
+                          <text id="t1" x="310" y="400">0:05</text>
+                          <text id="t2" x="460" y="400">0:10</text>
+                          <text id="t3" x="610" y="400">0:15</text>
+                          <text id="t4" x="760" y="400">0:20</text>
+                          <text id="t5" x="920" y="400">0:20</text>
+                        </g>
+                        <g class="labels y-labels">
+                          <text x="8" y="86">4</text>
+                          <text x="8" y="158">3</text>
+                          <text x="8" y="230">2</text>
+                          <text x="8" y="302">1</text> 
+                        </g>  
+
+                           </svg> 
+                                 
+              
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+     
+
+
+</div>

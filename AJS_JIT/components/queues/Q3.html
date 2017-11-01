@@ -1,0 +1,133 @@
+ 
+<div class="wrapper wrapper-content  " ng-controller="Q3Ctrl as Q3">
+
+   
+        <div class="col-lg-4 "> 
+          <div class="row">  
+     <h2 style="float:left;">Q3 In Delivery</h2>
+          <div class="btn-group" style="float: right;padding-top:20px" >
+                    <label style="font-weight:100"  uib-tooltip="see All"  uib-tooltip="Show All"  class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="''" uncheckable="" >
+                    <i class="fa fa-truck"></i>  </label>
+                   <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="'1'" uncheckable="" >
+                    1</label>
+                     <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="'2'" uncheckable="">
+                    2</label>
+                     <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="'3'" uncheckable="">
+                    3</label>
+                      
+                      
+                    </div> 
+        </div>
+        <div class="row">
+  <div class="col-lg-6  no-padding no-margins">
+                <table class="table table-queue table-hover no-margins"  ng-model="table_queueQ3" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q3aw></counter-queue-q3aw><span class="table-title">Stand By</span></th></tr>
+                    <tr>
+                            <th><div class="no-margins" ng-click="set_orderQ3='task_id';set_order_attQ3=false ">Ord.<i ng-class="{'hidden': set_order_attQ3 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ3='ttd';set_order_attQ3=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ3} " class="fa fa-level-down"></i></p></div></th>
+                            <th ng-click="filterQ3=false " ng-show="filterQ3==true">Order.</th>
+                            <th ng-click="filterQ3=true " ng-show="filterQ3==false"> Addr.</th>
+                 
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="Q3 in table_queueQ3aw | filter:iddly_bt | orderBy:set_orderQ3" ng-click="show_single_task(Q3.task_id)">
+                        <td>
+                                <div><small class="label label-primary">{{Q3.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q3.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q3.delay}}</small></div>
+                     
+                        </td>
+                            <td ng-show="filterQ3==true"> {{Q3.items}}  </td>
+                        <td ng-show="filterQ3==false"> {{Q3.dlv_addr}}  </td>
+                          
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div> 
+            <div class="col-lg-6 no-padding no-margins">
+                <table class="table table-queue table-hover no-margins table-bg-1"  ng-model="table_queueQ3" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q3a></counter-queue-q3a><span class="table-title">Delivery</span></th></tr>
+                    <tr>
+                            <th><div class="no-margins" ng-click="set_orderQ3='task_id';set_order_attQ3=false ">Ord.<i ng-class="{'hidden': set_order_attQ3 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ3='ttd';set_order_attQ3=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ3} " class="fa fa-level-down"></i></p></div></th>
+                            <th ng-click="filterQ3=false " ng-show="filterQ3==true">Order.</th>
+                            <th ng-click="filterQ3=true " ng-show="filterQ3==false"> Addr.</th>
+                
+                      <!--  <th  ng-click=" set_orderQ3='ttd';set_order_attQ3=true "><p class="small"><i class="fa fa-clock-o"></i> TTD <i ng-class="{'hidden': !set_order_attQ3 } " class="fa fa-level-down"></i></p></th>  --> 
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="Q3 in table_queueQ3a | filter:iddly_bt | orderBy:set_orderQ3" ng-click="show_single_task(Q3.task_id)">
+                        <td>
+                                <div><small class="label label-primary">{{Q3.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q3.ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q3.delay}}</small></div> 
+                        </td>
+                            <td ng-show="filterQ3==true"> {{Q3.items}}  </td>
+                        <td ng-show="filterQ3==false"> {{Q3.dlv_addr}}  </td>
+                          
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+
+            </div>
+        </div>
+        <div class="col-lg-1 ">
+              <div class="ibox float-e-margins  border-bottom"  style="text-align:center"> 
+                   <div class="ibox-content gray-bg no-padding"">
+                    <small>Panel Mode</small><br> <p>
+               <a ui-sref=".Q3_chat" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.Q3View" uib-btn-radio="'chat'" uncheckable=""><i class="fa fa-wechat"></i>   </a></p>
+                    </div>
+        </div> 
+           
+        </div>
+        <div class="col-lg-7 "> 
+       <div id="delivery_chart" class="ibox no-margins" >
+                <div class="ibox-content" style="height:280px;">
+
+            
+                  <div class="btn-group" style="float:left;padding-right:10px;text-align:center">    
+                  <i class="fa fa-location-arrow" style="font-size:20px"></i> <br><br> 
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'All'" uncheckable="">ALL</label><br>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'1'" uncheckable="">1</label><br>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'2'" uncheckable="">2</label><br> 
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel" uib-btn-radio="'3'" uncheckable="">3</label> 
+                    </div>
+                      <svg height="270" width="350" id="delivery_svg_path">            
+                  
+               
+                    </svg>
+
+                </div>
+                </div>           
+                       
+                 <div id="delivery_map" class="ibox m-t-xs" >
+                <div class="ibox-content" >  
+                  <div class="btn-group" style="float:left;padding-right:10px;text-align:center"> <i class="fa fa-map-marker" style="font-size:30px"></i><br><br>
+                      <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty  "  ng-click="show_delivery_map()" >View Big Map</label><br> 
+                      <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel" uib-btn-radio="'All'" uncheckable="">ALL</label><br>
+                                     
+                      <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel1" uib-btn-radio="'1'" uncheckable=""><i class="fa fa-circle text-navy"></i> 1</label><br>
+                      <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel1" uib-btn-radio="'2'" uncheckable=""><i class="fa fa-circle text-navy"></i> 2</label><br> 
+                      <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel1" uib-btn-radio="'3'" uncheckable=""><i class="fa fa-circle text-navy"></i> 3</label> 
+                      </div>
+                     <div>
+                        <div id='osm_delivery'   class="osm_delivery"  ></div> 
+                   </div>   
+                </div> 
+               
+            </div>
+ 
+           
+        </div>
+    </div>
+
+      

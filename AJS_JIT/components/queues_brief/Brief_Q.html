@@ -1,0 +1,45 @@
+ 
+<div class="wrapper wrapper-content   " ng-controller="BriefQCtrl as BriefQ">
+
+    <div class="row">
+      
+
+
+    <h4>Selector-Based Filter</h4>
+<div class="btn-group" opt-kind ok-key="filter" >
+  <button type='button' class='btn btn-default active' ok-sel="*">Show All</button>
+  <button type='button' class='btn btn-default' ok-sel=".Q1AW">q1aw</button>
+  <button type='button' class='btn btn-default' ok-sel=".Q2">q2</button>
+  <button type='button' class='btn btn-default' ok-sel=".Q2A">q2a</button>
+  <button type='button' class='btn btn-default' ok-sel=".green">Green</button>
+  <button type='button' class='btn btn-default' ok-sel=":not(.blue)">Not Blue</button>
+  <button type='button' class='btn btn-default' ok-sel="#extra">Extra Only</button>
+</div>
+<div class='btn-group' opt-kind='' ok-key='sortBy'>
+  <button type='button' class='btn btn-default' ok-sel='.stimated_ttd' ok-type='date'>TTD</button>
+  <button type='button' class='btn btn-default' ok-sel='.task_id' ok-type='integer'>task_id</button>
+</div>
+   <div class="row" id="isotopeContainer" isotope-container ng-cloak class="ng-cloak">
+     <div id="task_{{Q.task_id}}" class="brief_main p-xs {{convert_to_class(Q.queue_name)}}  "  ng-repeat="Q in briefQueue track by Q.task_id" isotope-item ng-click="show_single_task(Q)">
+         <div ><small class="label label-primary task_id">{{Q.task_id_view}}</small><small class="pull-right brief_cname">{{orders[Q.task_id].user_data.first_name}} {{orders[Q.task_id].user_data.last_name}} </small></div>
+          <div class="brief_mt brief_center">{{orders[Q.task_id].brief_data.items}} </div>
+          <div class="brief_mt brief_center">{{orders[Q.task_id].brief_data.addr}}  </div>
+          <div style="background-color: white; padding:11px">
+            <div class="pull-right"><image src="{{complete_img(Q.queue_name)}}" height="40" width="40" ></image></div>
+            <div ><i class="fa fa-heart-o" /> <small class="label label-green ">{{orders[Q.task_id].preferred_delivery_time}} </small></div>
+            <div class="brief_mt"> <i class="fa fa-clock-o" /><small style="margin-left:4px" class="label label-info stimated_ttd">{{Q.stimated_ttd}} </small><small class="m-l-xs label label-warning">{{Q.delay_ttd}}</small></div>
+            </div> 
+          <div class='brief_txt' style="background-color: #e7eaec">
+            <div  style="text-align: right;padding:5px">{{complete_txt(Q.queue_name)}}</div> 
+
+            <uib-progressbar class="brief_mt" value="complete_percent(Q.queue_name)" type="success"><small>{{complete_percent(Q.queue_name)}}%</small></uib-progressbar>
+         </div>
+      </div>
+    </div>
+
+        
+</div>
+
+            
+    </div>
+

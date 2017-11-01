@@ -1,0 +1,110 @@
+<div class="row border-bottom top-bar white-bg" >
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
+       <div class="">
+        <div class="navbar-header">
+            <span minimaliza-sidebar></span>
+           
+        </div>
+        <ul class="nav navbar-top-links navbar-left" style="margin-left:20px;margin-top: 8px">
+            <!-- <h6> {{helloText}}</h6>
+            <h6>{{varA}}</h6>-->
+            <!--   <li> 
+                 <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span> 
+            </li> 
+          <li uib-dropdown>
+                <a class="count-info" href uib-dropdown-toggle>
+                    Language
+                </a>
+                <ul uib-dropdown-menu class="animated fadeInRight m-t-xs" ng-controller="translateCtrl">
+                    <li><a ng-click="changeLanguage('en')">English</a></li>
+                    <li><a ng-click="changeLanguage('es')">Spanish</a></li>
+                </ul> 
+            </li>-->
+
+            <i class="fa fa-eye" tooltip-placement="bottom" uib-tooltip="customers seeing items"> <span class="label label-primary"  >3</span></i> 
+            <counter-customers-checkout></counter-customers-checkout>
+        <!-- Q1 -->   
+        <div class="top-group" style="margin-left:20px"><h3 class="top-group-name">Q1</h3>
+            <li uib-dropdown style="margin-right:0px">
+                  <label style="font-weight:100" uib-dropdown-toggle class="btn-sm btn-default">  
+                   <div class="sk-spinner sk-spinner-pulse incoming-spinner" style="opacity: 0"></div>
+                    <counter-queue-q1aw></counter-queue-q1aw> Incoming</label>
+          
+                <ul id="Q1AW_dropdown_table" class="dropdown-messages " uib-dropdown-menu ng-model="table_queueQ1aw">
+                    <li class="border-bottom dropdown-top" ng-repeat="Q1 in table_queueQ1aw | orderBy:set_orderQ1" ng-click="show_single_task(Q1.order_id)">
+                        <div class="dropdown-messages-box">
+                            <div>
+                                <small class="pull-right">46h ago</small>
+                                 {{Q1.items}}  <br>
+                                <small class="text-muted">{{Q1.dlv_addr}} </small>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                   <li>
+                        <div class="text-center link-block">
+                            <a ui-sref="index.All_Q">
+                                <strong>View Queue</strong>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li> 
+            </div>
+     <!-- Q2 -->   
+    <div class="top-group"> <h3 class="top-group-name">Q2</h3>
+        <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q2()">
+        <counter-queue-q2aw></counter-queue-q2aw> WT Assembly</label>
+        <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q2()">
+       <counter-queue-q2a></counter-queue-q2a> Assembly</label>
+       <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q2()">
+        <counter-queue-q2bw></counter-queue-q2bw> WT Production</label>
+        <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q2()">
+       <counter-queue-q2b></counter-queue-q2b> Production</label>
+       <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q2()">
+        <counter-queue-q2cw></counter-queue-q2cw> WT ATD</label>
+        <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q2()">
+       <counter-queue-q2c></counter-queue-q2c> ATD</label>
+           
+           
+</div>
+      <!-- Q3 -->   
+ <div class="top-group"><h3 class="top-group-name">Q3</h3>
+       <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q3()">
+       <counter-queue-q3aw></counter-queue-q3aw> StandBy TD</label>
+          
+       <label style="font-weight:100"   class="btn-sm btn-default" ng-click="q3()">
+       <counter-queue-q3a></counter-queue-q3a> In Delivery</label>
+           
+            
+</div>
+    <!-- all Q -->   
+
+       <!-- clock -->   
+ <div class="top-group" id="clock_digital" >
+    <ds-widget-clock show-digital digital-format="'HH:mm EEEE dd-MMM' "></ds-widget-clock>
+           
+</div>
+  <!--  <ul class="nav navbar-top-links navbar-right">
+     
+            <li>
+                <a ui-sref="login">
+                    <i class="fa fa-sign-out"></i> Log out
+                </a>
+            </li>
+            <li>
+                <a ng-click="$root.rightSidebar = !$root.rightSidebar">
+                    <i class="fa fa-tasks"></i>
+                </a>
+            </li>
+        </ul>-->
+        </ul>
+        </div>
+    </nav>
+    <div class="m-l p-l">
+  <div class="top-group" style="cursor:pointer" ng-click="allq()">
+    <h3 class="top-group-name">All Q</h3>
+           
+</div>
+    </div>
+</div>

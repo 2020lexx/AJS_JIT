@@ -1,0 +1,193 @@
+<div class="row wrapper border-bottom   page-heading m-b-none no-padding no-margins" ng-controller="Q1Ctrl as Q1" >
+<div class="row  border-bottom white-bg  no-padding"   >
+    <div class="col-lg-5">
+        <h2>Order #{{order_data.task_id}}</h2>
+       
+    </div>
+    <div class="col-lg-7">
+<div class="ibox float-e-margins no-margins border-left" >
+            
+                <div class="ibox-content">
+               <small>Running Procedures</small>
+              <!-- running procedures mess interface -->
+               <h2 class="no-margins m-t-xs" ><i class="fa fa-hand-o-right"></i> Order OK - <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Submit</button>
+                <!-- waiting status blink -->
+               <div class="sk-spinner sk-spinner-pulse pull-right"></div>
+                <!-- waiting status blink -->
+                </h2> 
+                  <!-- running procedures mess interface -->
+              </div>
+            </div>    
+    </div>
+</div>
+<div class="wrapper wrapper-content   m-t-none "  >
+
+ <div class="row m-t-s">
+        
+
+        <div class="col-md-4">
+
+            <div class="profile-image">
+                <img src="img/customers/{{order_data.user_data.photo}}" class="img-circle circle-border m-b-md" alt="profile">
+            </div>
+            <div class="profile-info">
+                <div class="">
+                    <div>
+                        <h2 class="no-margins">
+                           {{order_data.user_data.last_name}} {{order_data.user_data.first_name}}
+                        </h2>
+                        <h4><i class="fa fa-phone"></i>&nbsp;{{order_data.user_data.phones}}</h4>
+                        <!-- address from app -->
+                        <small> 
+                        <!-- status form addresses compares -->
+                        <span class="pull-right label label-warning">not match</span>
+                        <!-- status form addresses compares -->
+                        
+                        <br><address style="padding-bottom:12px" class="border-bottom"><h3 >
+                           {{order_data.user_data.street_name}} {{order_data.user_data.street_number}}<br>
+                           {{order_data.user_data.street_ids}}<br></h3>
+                           {{order_data.user_datay.locality}}
+                        </address> 
+                        </small>
+                         <h5>Customer Since: {{order_data.user_data.customer_since}}</h5>
+                         <h5>Total Orders: {{order_data.user_data.total_orders}}</h5>
+                        <!-- address from geoloc -->
+                       <!--   <small> -->
+                         <!-- status form addresses compares distance-->
+                      <!--   <span class="pull-right label label-info">20 Km apart</span> -->
+                        <!-- status form addresses compares distance-->
+                    <!--    <address> 
+                           Via Enrico de Nicola 14<br>
+                           4to piano<br>
+                           Sermide 
+                        </address> 
+
+                             </small> -->
+                    </div>
+                </div>
+            </div> 
+
+
+            <div class=" m-t">
+                    
+                    <table class="table invoice-table table-hover no-margins"  ng-model="items" >
+                    <thead>
+                        <th>Cat.</th>
+                        <th>Qty.</th>
+                        
+                        <th>Item List</th>
+                        <th>Format</th>
+                        <th>Unit Price</th>
+                         
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="items_td in items"> 
+                              <td>{{items_td.item.CategoryName}}</td>
+                      <td > {{items_td.items_number}}  </td>
+                      <td > {{items_td.item.ProductName}} 
+                             <i uib-dropdown class="pull-right m-l-xs m-t-xs" >
+                       <i class="fa fa-list-ul pull-right"   uib-dropdown-toggle ></i>  
+                             <ul class="dropdown-messages " uib-dropdown-menu ng-model="items_td.item.elements">
+                    <li class=" dropdown-top" ng-repeat="items_el in items_td.item.elements"  >
+                        <div class="dropdown-messages-box">
+                            <div> 
+                                 {{items_el}}   
+                            </div>
+                        </div>
+                    </li>
+                    </ul> </i>   
+                       </td>
+                            <td>{{items_td.item.format_d.name}} {{items_td.item.format_d.format}} {{items_td.item.format_d.format2}} {{items_td.item.format_d.format3}} </td>
+                  <td >  {{items_td.item.format_d.price}}/{{items_td.item.format_d.new_price}} </td>
+                     </tr>
+                    
+                    </tbody>
+                </table>
+                </div>
+               
+        </div>
+         <div class="col-md-2"> 
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                 <h5>Preferred Dlv.Time</h5>
+            </div>
+            <div class="ibox-content">
+                <h2 class="no-margins"><i class="fa fa-clock-o"></i>   {{preferred_delivery_time}}</h2> 
+            </div>
+        </div>
+        <div class="ibox float-e-margins">
+            <div class="ibox-title"> 
+                <h5>Stimated Dlv.Time</h5>
+            </div>
+            <div class="ibox-content">
+                <h2 class="no-margins"><i class="fa fa-clock-o"></i>   {{stimated_delivery_time}}<i class="fa fa-circle text-warning pull-right"></i></h2> 
+                <small>Delay</small> <div class=" text-warning" style="float:right;">{{delay_delivery_time}}</div>
+            </div>
+        </div>
+         <div class="ibox float-e-margins  ">
+            <div class="ibox-title">
+            <!-- compare from app and local products bill -->
+                <span class="label label-primary pull-right">Verified</span>
+             <!-- compare from app and local products bill -->
+               <h5>Total</h5>
+            </div>
+            <div class="ibox-content lazur-bg">
+                <h1 class="no-margins">$ {{order_data.total_invoice}}</h1> 
+            </div>
+        </div>
+         <div class="ibox float-e-margins  border-bottom"> 
+                   <div class="ibox-content gray-bg" style="text-align:right">
+                       
+                    <p>
+                   <a ui-sref=".Q1_chat" class="m-t-xs btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.Q1Det" uib-btn-radio="'chat'" uncheckable=""><i class="fa fa-wechat"></i>  Chat</a></p>
+                    </div>
+        </div>
+        </div>
+        <div class="col-md-6"> 
+
+       <div id="incoming_map" class="ibox">
+                <div class="ibox-content"> 
+             
+            <div class="btn-group" style="padding-bottom:10px">
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="map_mode_r" uib-btn-radio="'Map'" ng-click='map_mode("map")' uncheckable="">Map</label>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="map_mode_r" uib-btn-radio="'StreetView'"  ng-click='map_mode(uib-btn-radio)'  uncheckable="">Street View</label> 
+                     <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty  "  ng-click="show_map(coords)" >View Big Map</label> 
+ 
+                    </div><br>
+                    <div class="q1_map"><div id="osm_q1"  class="osm_map"    ng-show='map_mode_v==true' ></div> 
+                   <!--  <single-customer-map></single-customer-map>-->
+
+                               <map id="sv" ng-if='map_mode_v==false' style="display:block; width: 100%; height:100%; "  street-view="StreetViewPanorama(document.querySelector('map#sv), {position:new google.maps.LatLng({{centerx}},{{centery}})})" /> 
+              
+                    
+                       <!--   
+                          <map id="sv" trigger-resize='{{resize}}'    ng-if='map_mode_v==false' style="display:block; width: 100%; height:100%; "  street-view="StreetViewPanorama(document.querySelector('map#sv'), {position:new google.maps.LatLng({{centerx}},{{centery}})})" />-->
+                     </div> 
+                   
+                </div> 
+               
+            </div>
+  
+
+      
+
+
+    </div>
+ 
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+ 

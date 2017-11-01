@@ -1,0 +1,308 @@
+<div class="wrapper wrapper-content " style="padding-top: 0px" ng-controller="All_QCtrl as All_Q"  >
+ 
+        <div class="col-lg-2">
+            <div class="row">
+           <h2>Q1 Incoming </h2>
+             <!--   <div class="btn-group" style="padding-bottom:10px;padding-top:10px">
+                   <label style="font-weight:100" uib-tooltip="see All"  class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel1" uib-btn-radio="'AllQ1'" uncheckable="" ng-click="view_Q1all()"><i class="fa fa-globe"></i></label>
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel1" uib-btn-radio="'Incomming'" uncheckable="" ng-click="view_Q1a()">
+                        <counter-queue-q1a></counter-queue-q1a> Incoming
+                    </label>
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel1" uib-btn-radio="'WTA'" uncheckable="" ng-click="view_Q1b()" >
+                        <counter-queue-q1b></counter-queue-q1b> Wait To Assembly
+                    </label>  
+                </div> -->
+                <table class="table table-queue table-hover no-margins table-incoming"  ng-model="table_queueQ1aw" >
+                    
+                    <thead>
+                    <tr><th colspan="2" class="table-first-th"><counter-queue-q1aw></counter-queue-q1aw><span class="table-title">Incoming</span></th></tr>
+                    <tr>
+                        <th><div class="no-margins" ng-click="set_orderQ1='task_id';set_order_attQ1=false ">Ord.<i ng-class="{'hidden': set_order_attQ1 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ1='stimated_ttd';set_order_attQ1=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ1 } " class="fa fa-level-down"></i></p></div></th>
+                          <th  ng-click="filterQ1=false " ng-show="filterQ1==true">Order.</th>
+                            <th ng-click="filterQ1=true " ng-show="filterQ1==false">Dly. Addr.</th> 
+                         <!--    <th  ng-click=" set_orderQ1='ttd';set_order_attQ1=true "><p class="small"><i class="fa fa-clock-o"></i> TTD <i ng-class="{'hidden': !set_order_attQ1 } " class="fa fa-level-down"></i></p></th>-->
+                    </tr>
+                    </thead>
+                    <tbody >
+                        <tr  ng-repeat="Q1 in table_queueQ1aw | orderBy:set_orderQ1" ng-click="show_single_task(Q1)">
+                        <td>
+                            <div><small class="label label-primary">{{Q1.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q1.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q1.delay_ttd}}</small></div>
+                        </td>
+                         <td ng-show="filterQ1==true">{{orders[Q1.task_id].brief_data.items}} </td>
+                        <td ng-show="filterQ1==false">{{orders[Q1.task_id].brief_data.addr}}  </td>
+                             
+                        </tr>
+                    </tbody>
+                </table>
+         
+        <!--    <div class="col-lg-6 no-padding no-margins">
+         
+               <table class="table table-queue table-hover no-margins"  ng-model="table_queueQ1" >
+                    <thead>
+                    <tr><th colspan="2" class="table-first-th"><counter-queue-q1b></counter-queue-q1b><span class="table-title">Wait To Assembly</span></th></tr><tr>
+                        <th><div  class="no-margins" ng-click="set_orderQ1='id';set_order_attQ1=false ">Ord.<i ng-class="{'hidden': set_order_attQ1 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ1='ttd';set_order_attQ1=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ1 } " class="fa fa-level-down"></i></p></div>
+                        </th>
+
+                          <th  ng-click="filterQ1=false " ng-show="filterQ1==true">Order.</th>
+                            <th ng-click="filterQ1=true " ng-show="filterQ1==false">Dly. Addr.</th> 
+                     </tr>
+                    </thead>
+                    <tbody >
+                        <tr  ng-repeat="Q1 in table_queueQ1 | orderBy:set_orderQ1" ng-click="show_single_task(Q1.id)">
+                        <td>
+                            <div><small class="label label-primary">{{Q1.id}}</small></div>
+                          <div><small class="label label-info">{{Q1.ttd}} </small></div>
+                          <div><small class="label label-warning"> +04'</small></div>
+                        </td>
+                         <td ng-show="filterQ1==true"> {{Q1.prd}} </td>
+                        <td ng-show="filterQ1==false"> {{Q1.addr}}  </td>
+                             
+                        </tr>
+                    </tbody>
+                </table>
+             </div>-->
+         
+          </div>
+        </div>
+        <div class="col-lg-6">
+           <div class="row">
+           <h2>Q2 In Production </h2>
+           <!--
+                     <div class="btn-group" style="padding-bottom:10px;padding-top:10px">
+                        <label style="font-weight:100"  uib-tooltip="see All" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'AllQ2'" uncheckable="" ng-click="view_Q2all()"><i class="fa fa-globe"></i></label>
+                      <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'Assembly'" uncheckable="" ng-click="view_Q2a()">
+                    <counter-queue-q2a></counter-queue-q2a> Assembly</label>
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel2" uib-btn-radio="'Production'" uncheckable="" ng-click="view_Q2b()"><counter-queue-q2b></counter-queue-q2b> Production</label> 
+                    <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel2" uib-btn-radio="'Done'" uncheckable="" ng-click="view_Q2c()"> 
+                    <counter-queue-q2c></counter-queue-q2c> Done</label>
+                    
+                    </div> -->
+            </div>
+            <div class="row">
+            <div class="col-lg-4 no-margins no-padding" style="margin-right: 0.5px !important; margin-left: -1px !important;">
+             <table class="table  table-queue table-hover no-margins table-bg-1"    >
+                    <thead>
+                                <tr><th colspan="2"  class="table-first-th"><counter-queue-q2aw></counter-queue-q2aw><counter-queue-q2a></counter-queue-q2a><span class="table-title">Assembly</span></th></tr>
+                    <tr>
+                        <th><div class="no-margins" ng-click="set_orderQ2='task_id';set_order_attQ2=false ">Ord.<i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ2='stimated_ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ2} " class="fa fa-level-down"></i></p></div>
+                        </th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                          
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                      <tr class="table-bg-2" ng-repeat="Q2 in table_queueQ2a | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2aw">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q2.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay_ttd}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{orders[Q2.task_id].brief_data.items}} </td>
+                        <td ng-show="filterQ2==false"> {{orders[Q2.task_id].brief_data.addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    <tr  ng-repeat="Q2 in table_queueQ2aw | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2a">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q2.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay_ttd}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true">{{orders[Q2.task_id].brief_data.items}} </td>
+                        <td ng-show="filterQ2==false"> {{orders[Q2.task_id].brief_data.addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+               </div>
+                <div class="col-lg-4 no-margins no-padding" style="    margin-right: 0.5px !important; ">
+             <table class="table table-queue table-hover no-margins"   ng-model="table_queueQ2" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q2bw></counter-queue-q2bw><counter-queue-q2b></counter-queue-q2b><span class="table-title">Production</span></th></tr>
+                    <tr>
+                        <th> <div class="no-margins" ng-click="set_orderQ2='task_id';set_order_attQ2=false ">Ord.<i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ2='stimated_ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ2} " class="fa fa-level-down"></i></p></div></th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                          
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr class="table-bg-2" ng-repeat="Q2 in table_queueQ2b | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2bw">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q2.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay_ttd}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{orders[Q2.task_id].brief_data.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{orders[Q2.task_id].brief_data.addr}}  </td>
+                          
+                       
+                    </tr>
+                    <tr  ng-repeat="Q2 in table_queueQ2bw | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q2.stimated_ttd}} </small></div>
+                          <div><small ng-class="defineClassDelay(Q2.delay)" class="label label-warning">{{Q2.delay_ttd}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{orders[Q2.task_id].brief_data.items}} </td>
+                        <td ng-show="filterQ2==false"> {{orders[Q2.task_id].brief_data.addr}} </td>
+                          
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+               </div>
+                 <div class="col-lg-4 no-padding no-margins">
+             <table class="table table-queue table-hover no-margins table-bg-1"   ng-model="table_queueQ2" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q2cw></counter-queue-q2cw><counter-queue-q2c></counter-queue-q2c><span class="table-title">PT Delivery</span></th></tr>
+                    <tr>
+                        <th><div class="no-margins" ng-click="set_orderQ2='task_id';set_order_attQ2=false ">Ord.<i ng-class="{'hidden': set_order_attQ2 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ2='stimated_ttd';set_order_attQ2=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ2} " class="fa fa-level-down"></i></p></div></th>
+                
+                        <th ng-click="filterQ2=false " ng-show="filterQ2==true">Order.</th>
+                            <th ng-click="filterQ2=true " ng-show="filterQ2==false"> Addr.</th>
+                          
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr class="table-bg-2" ng-repeat="Q2 in table_queueQ2c | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)"  ng-model="table_queueQ2cw">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q2.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay_ttd}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{orders[Q2.task_id].brief_data.items}}  </td>
+                        <td ng-show="filterQ2==false"> {{orders[Q2.task_id].brief_data.addr}}  </td>
+                          
+                       
+                    </tr>
+                    <tr  ng-repeat="Q2 in table_queueQ2cw | orderBy:set_orderQ2" ng-click="show_single_task(Q2.task_id)">
+                        <td>
+                         <div><small class="label label-primary">{{Q2.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q2.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q2.delay_ttd}}</small></div>
+                     
+                        </td>
+                         <td ng-show="filterQ2==true"> {{orders[Q2.task_id].brief_data.items}} </td>
+                        <td ng-show="filterQ2==false"> {{orders[Q2.task_id].brief_data.addr}}  </td>
+                          
+                       
+                    </tr>
+                    
+                    </tbody>
+                </table>
+               </div> 
+               </div> 
+
+        </div>
+        <div class="col-lg-4">
+          <div class="row">   
+         <h2 style="float:left;">Q3 In Delivery</h2>
+          <div class="btn-group" style="float: right;padding-top:20px" >
+                    <label style="font-weight:100"  uib-tooltip="see All"  uib-tooltip="Show All"  class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="''" uncheckable="" >
+                    <i class="fa fa-truck"></i>  </label>
+                   <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="'1'" uncheckable="" >
+                    1</label>
+                     <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="'2'" uncheckable="">
+                    2</label>
+                     <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="iddly_bt.iddly" uib-btn-radio="'3'" uncheckable="">
+                    3</label>
+                      
+                      
+                    </div> 
+              <!--      <div class="btn-group pull-right" style="padding-bottom:10px;padding-top:10px">
+                      <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel3" uib-btn-radio="'AllQ3'" uncheckable="" ng-click="view_Q3all()"><i class="fa fa-globe"></i></label>
+                     
+                        <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.radioModel3" uib-btn-radio="'StandBy'" uncheckable="" ng-click="view_Q3a()">
+                        <counter-queue-q3a></counter-queue-q3a> StandBy</label>
+                        <label style="font-weight:100" class="btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="main.radioModel3" uib-btn-radio="'InDelivery'" uncheckable="" ng-click="view_Q3b()"><counter-queue-q3b></counter-queue-q3b> In Delivery</label> 
+                       
+                    </div> -->
+        </div>
+         <div class="row">
+            <div class="col-lg-6  no-padding no-margins">
+                <table class="table table-queue table-hover no-margins"  ng-model="table_queueQ3" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q3aw></counter-queue-q3aw><span class="table-title">Stand By</span></th></tr>
+                    <tr>
+                            <th><div class="no-margins" ng-click="set_orderQ3='task_id';set_order_attQ3=false ">Ord.<i ng-class="{'hidden': set_order_attQ3 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ3='stimated_ttd';set_order_attQ3=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ3} " class="fa fa-level-down"></i></p></div></th>
+                            <th ng-click="filterQ3=false " ng-show="filterQ3==true">Order.</th>
+                            <th ng-click="filterQ3=true " ng-show="filterQ3==false"> Addr.</th>
+                 
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="Q3 in table_queueQ3aw | filter:iddly_bt | orderBy:set_orderQ3" ng-click="show_single_task(Q3.task_id)">
+                        <td>
+                                <div><small class="label label-primary">{{Q3.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q3.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q3.delay_ttd}}</small></div>
+                     
+                        </td>
+                            <td ng-show="filterQ3==true"> {{orders[Q3.task_id].brief_data.items}}  </td>
+                        <td ng-show="filterQ3==false"> {{orders[Q3.task_id].brief_data.addr}}  </td>
+                          
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div> 
+            <div class="col-lg-6 no-padding no-margins">
+                <table class="table table-queue table-hover no-margins table-bg-1"  ng-model="table_queueQ3" >
+                    <thead>
+                     <tr><th colspan="2"  class="table-first-th"><counter-queue-q3a></counter-queue-q3a><span class="table-title">Delivery</span></th></tr>
+                    <tr>
+                            <th><div class="no-margins" ng-click="set_orderQ3='task_id';set_order_attQ3=false ">Ord.<i ng-class="{'hidden': set_order_attQ3 } " class="fa fa-level-down"></i></div>
+                        <div ng-click=" set_orderQ3='stimated_ttd';set_order_attQ3=true "><p class="small"><i class="fa fa-clock-o"></i>TTD <i ng-class="{'hidden': !set_order_attQ3} " class="fa fa-level-down"></i></p></div></th>
+                            <th ng-click="filterQ3=false " ng-show="filterQ3==true">Order.</th>
+                            <th ng-click="filterQ3=true " ng-show="filterQ3==false"> Addr.</th>
+                
+                      <!--  <th  ng-click=" set_orderQ3='ttd';set_order_attQ3=true "><p class="small"><i class="fa fa-clock-o"></i> TTD <i ng-class="{'hidden': !set_order_attQ3 } " class="fa fa-level-down"></i></p></th>  --> 
+                        
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="Q3 in table_queueQ3a | filter:iddly_bt | orderBy:set_orderQ3" ng-click="show_single_task(Q3.task_id)">
+                        <td>
+                                <div><small class="label label-primary">{{Q3.task_id_view}}</small></div>
+                          <div><small class="label label-info">{{Q3.stimated_ttd}} </small></div>
+                          <div><small class="label label-warning">{{Q3.delay_ttd}}</small></div> 
+                        </td>
+                            <td ng-show="filterQ3==true"> {{orders[Q3.task_id].brief_data.items}} </td>
+                        <td ng-show="filterQ3==false"> {{orders[Q3.task_id].brief_data.addr}}  </td>
+                          
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+ 
+ 
+
+</div>

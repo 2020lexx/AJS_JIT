@@ -1,0 +1,392 @@
+/*
+ *   PB_ - JIT_Delivery
+ *   css main
+ *   version 1.0
+ *	 @pablo (C)2016
+*/
+/* common */
+h3{
+	font-weight: 200 !important;
+}
+.h100 {
+	height: 100%;
+} 
+.hide{
+ /* opacity: 0; */
+}
+.single-task-modal{
+  z-index: 2050 !important;
+  position: fixed;
+  top: 12% !important;
+  left: 12% !important;
+  width: 80% !important;
+  height: 80% !important;
+  overflow: hidden;
+  margin-bottom: 0;
+  background-color: #FFFFFF; 
+ border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.map-modal{
+  z-index: 2050 !important;
+  position: fixed;
+  top: 12% !important;
+  left: 12% !important;
+  width: 80% !important;
+  height: 80% !important;
+  overflow: hidden;
+  margin-bottom: 0;
+  background-color: #FFFFFF; 
+ border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.table-queue div{
+	margin-top:4px;
+}
+.table-queue p{
+  margin: 0px;
+}
+.table-queue th{
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+.table-queue td{
+  cursor: pointer;
+
+}
+.table-incoming{
+  border: 2px solid #f8ac59;
+}
+.table-incoming tbody tr{
+  border: 2px solid #f8ac59;
+}
+.table-incoming .table-first-th{
+  background-color: #f8ac59;
+  color:#FFF;
+}
+.table-incoming .Q1AW_count{
+  border: 1px solid #fff;
+}
+.table-bg-1{
+	background-color: rgba(249, 249, 249, 0.71);
+}
+.table-bg-2{
+  background-color: rgba(12, 231, 9, 0.71);
+  color: #fff;
+}
+.label-green{
+    background-color: rgba(12, 231, 9, 0.71) !important;
+  color: #fff !important;
+}
+.table-title{
+	font-weight: lighter;
+	text-align: center;
+	font-size: 14px;
+	
+}
+.table-first-th{
+	background: white;
+	text-align: center; 
+}
+.table-counter{
+	float: left;
+	margin-right: 5px;
+}
+.top-bar{
+	position: fixed; 
+	width: 100%;
+	z-index: 10;
+}
+.top-bar .dropdown-top{
+  cursor: pointer;
+}
+.top-bar .btn-default{
+  cursor: pointer;
+}
+.top-bar .incoming-spinner{
+	float: left;
+    height: 18px !important;
+    width: 18px !important;
+    margin-right: 10px !important;
+    background-color: #ed5565 !important;
+
+}
+.top-bar .top-group{
+	display: inline-block;
+	border-bottom: 1px solid #ccc;
+	margin-right: 10px;
+}
+.top-bar .top-group-name{
+	display: inline-block;
+	 
+}
+.footer-bar{
+	position: fixed !important;
+	bottom: 0px; 
+}
+.q3-tabs{
+	height: 250px;
+}
+.chat-form-bg{
+	background-color:#1c84c6 !important;
+	color:#eee !important;
+}
+
+/* clock */
+#clock_analog {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+ bottom:40%;
+  left:1%;
+  opacity: .8;
+}
+#clock_digital{
+  width: 200px;
+  border-bottom: none !important;
+}
+#clock_digital .widget-clock .digital {
+  text-align: center;
+}
+#clock_digital .widget-clock .time {
+  color: #1c84c6;
+  font-size: 14px;
+  font-family: "open sans";
+  font-weight: 100;
+}
+
+/* delivery SVG */
+#delivery_svg_path{
+	float:left;
+}
+#delivery_svg_path .block-txt{
+   font-size: 12px;
+  fill: black; 
+
+}
+#delivery_svg_path .block-txt-perc{
+   font-size: 32px;
+  fill: black; 
+
+}
+#delivery_svg_path #perc_circle{
+  stroke-dasharray:200%;
+/*   stroke-dashoffset:200%; */
+}
+#delivery_svg_path svg.progress-circle path {
+	stroke: #1ECD97;
+	stroke-width: 5;
+
+}
+#delivery_svg_path  svg.checkmark path,
+#delivery_svg_path  svg.cross path {
+	stroke: #fff;
+	stroke-linecap: round;
+	stroke-width: 4;
+	-webkit-transition: opacity 0.1s;
+	transition: opacity 0.1s;
+}
+#delivery_svg_path svg.progress-circle path,
+#delivery_svg_path svg.checkmark path,
+#delivery_svg_path svg.cross path {
+	opacity: 1;
+	-webkit-transition: stroke-dashoffset 0.3s;
+	transition: stroke-dashoffset 0.3s;
+}
+/* single task delivery SVG */
+#single_task_svg_delivery #TimexGrid{
+  stroke: #ed5565;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+
+}
+#single_task_svg_delivery .y-grid{
+  stroke: #ed5565;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+
+}
+#single_task_svg_delivery .block-txt{
+   font-size: 12px;
+  fill: white; 
+
+}
+/* single task modal SVG */
+#single_task_svg_path #TimexGrid{
+  stroke: #ed5565;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+
+}
+#single_task_svg_path .y-grid{
+  stroke: #ed5565;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+
+}
+#single_task_svg_path .block-txt{
+   font-size: 12px;
+  fill: white; 
+
+}
+/* single task map */
+.single_task_map{
+    height: 420px;
+}
+/* Q1 */
+
+.q1_map{
+  height: 450px !important;
+}
+
+/* Q2 SVG */
+#Q2_svg_path .bar {
+   height: 30px;
+   cursor: pointer;
+ }
+#Q2_svg_path .bar text {
+   font-size: 15px;
+  fill: white; 
+}
+ 
+#Q2_svg_path .labels.x-labels {
+  text-anchor: middle;
+}
+
+#Q2_svg_path .labels.y-labels {
+  text-anchor: end;
+}
+#Q2_svg_path .x0-grid{
+	stroke: #ccc;
+  stroke-dasharray: 5,5;
+  stroke-width: 1;
+ animation: dash 55s linear infinite;
+} 
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+#Q2_svg_path #y0Grid{
+	stroke: #0c0;
+  
+  stroke-width: 3; 
+} 
+#Q2_svg_path .grid {
+  stroke: #aaa;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+
+}
+
+#Q2_svg_path .labels {
+  font-size: 13px;
+}
+
+#Q2_svg_path .label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black;
+}
+/* queue counter alert */
+.queue_counter_alert{
+  background-color:#ed5565 !important;
+  color:#FFF !important;
+}
+/* osm map routing */
+.osm_map {
+         width: 100%;
+        height: 100%;
+    } 
+
+.osm_big{
+   width: 100%;
+   height: 100%;
+}
+.osm_delivery{
+  height: 450px !important;
+  
+}
+ .osm_big_delivery{
+   height: 650px !important;
+}
+.marker_label{
+  font-size: 11px;
+}
+/* brief Q */
+.brief_main{
+  float: right;
+  width: 250px;
+  height: 210px;
+  border: 1px solid #e7eaec;
+  margin:4px;
+  cursor: pointer;
+}
+.brief_mt{
+  margin-top:4px;
+}
+.brief_cname{
+  font-weight: bold;
+}
+.brief_center{
+  padding-left:5px;
+  padding-bottom: 5px;
+}
+.brief_element_alert{
+   border: 1px solid #ed5565 !important;
+}
+.brief_element_alert_txt{
+   background-color: #ed5565 !important;
+   color: #fff;
+}
+/************ test******************/
+#queue_debug .bar {
+   height: 20px;
+   cursor: pointer;
+ }
+ #queue_debug .bar text {
+   font-size: 10px;
+  fill: white; 
+}
+ 
+#queue_debug .labels.x-labels {
+  text-anchor: middle;
+}
+
+#queue_debug .labels.y-labels {
+  text-anchor: end;
+}
+#queue_debug .x0-grid{
+  stroke: #ccc;
+  stroke-dasharray: 5,5;
+  stroke-width: 1;
+ animation: dash1 55s linear infinite;
+} 
+@keyframes dash1 {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+#queue_debug  #y0Grid{
+  stroke: #0c0;
+  
+  stroke-width: 3; 
+} 
+#queue_debug  .grid {
+  stroke: #aaa;
+  stroke-dasharray: 0;
+  stroke-width: 1;
+
+}
+
+#queue_debug .labels {
+  font-size: 13px;
+}
+
+#queue_debug  .label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black;
+}

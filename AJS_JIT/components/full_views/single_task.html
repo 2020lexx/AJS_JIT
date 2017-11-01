@@ -1,0 +1,200 @@
+<div class="single-task-modal "  >
+    <div class="row wrapper h100 m-b-none no-padding no-margins" >
+
+     <div class="col-lg-7 h100">
+        <div class="row" style="height: 70%">
+            <div class="col-lg-5">
+            <h3 class="label-primary m p-sm" style="margin-right:-15px;text-align: right;">Order #{{order_data.task_id_view}}</h3>
+            <div class="row">
+            <h2 class="m-sm p-s" style="margin-top:0px;text-align: right;">
+                            {{order_data.user_data.last_name}} {{order_data.user_data.first_name}}
+                        </h2>
+                <div class="profile-image m-l pull-left">
+            <img src="img/customers/{{order_data.user_data.photo}}" class="img-circle circle-border m-b-md" alt="profile">
+                 </div>
+                <div class="m-t pull-left m-l" style="margin-top:0px;">
+                    
+                         <h4><i class="fa fa-phone"></i>&nbsp;{{order_data.user_data.phones}}</h4>
+                        <h5>Customer Since: {{order_data.user_data.customer_since}}</h5>
+                         <h5>Total Orders: {{order_data.user_data.total_orders}}</h5>
+                        </div>
+            </div>
+
+            <div class="row m-l  ">
+            <i class="fa fa-truck pull-left m-t"></i>
+                  <div class="pull-left m-l">
+                     <address  "><h3 >
+                           {{order_data.user_data.street_name}} {{order_data.user_data.street_number}}<br>
+                           {{order_data.user_data.street_ids}}<br></h3>
+                           {{order_data.user_data.locality}}
+                        </address> 
+                        </small>
+                         
+                   </div>    
+                </div>
+            <div class="row m-l">
+   
+         
+         <div class="ibox float-e-margins  border-bottom" style="margin-bottom: 10px;"> 
+                   <div class="ibox-content " style="text-align:right">
+                    
+                   <a ui-sref=".Q1_chat" class="m-t-xs btn-sm btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="main.Q1Det" uib-btn-radio="'chat'" uncheckable=""><i class="fa fa-wechat"></i>  Chat</a> 
+                    </div>
+        </div>
+
+            </div>
+
+            </div> 
+             
+             <div class="col-lg-7 h100">
+                <div class="table-responsive m-t" style="height: 70%">
+                    <table class="table invoice-table table-hover no-margins"  ng-model="table_invoice" >
+                    <thead>
+                        <th>Qty.</th>
+                        <th>Item List</th>
+                        <th>Format</th>
+                        <th>Unit Price</th>
+                         
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr  ng-repeat="invoice in table_invoice"> 
+                          <td > {{invoice.items_number}}  </td>
+                      <td > {{invoice.item.ProductName}}  </td>
+                      <td>{{invoice.item.format_d.name}} {{invoice.item.format_d.format}} {{invoice.item.format_d.format2}} {{invoice.item.format_d.format3}} </td>
+                        <td > {{invoice.item.format_d.new_price}}  </td>
+                     </tr>
+                    
+                    </tbody>
+                </table>
+                </div>
+                <div class="ibox float-e-margins m-t" style="margin-bottom: 0px">
+                <div class="ibox-content lazur-bg" style="text-align: right;">
+        
+                <h5 >Total</h5>
+          
+               <h1 class="no-margins">$ {{order_data.total_invoice}}</h1> 
+            </div>
+        </div>
+            </div>
+        </div>
+        <div class="row col-lg-12" style="height: 20%">
+            <svg height="125" width="700" id="single_task_svg_path" ng-show="on_delivery==false"> 
+                 <g class="grid x-grid" id="TimexGrid">
+                    <line x1="50" x2="650" y1="100" y2="100"></line>
+                 </g>
+                 <g class="grid y-grid"  >
+                    <line x1="50" x2="50" y1="130" y2="20"></line>
+                 </g>
+                 <g class="grid y-grid"  >
+                    <line x1="650" x2="650" y1="130" y2="20"></line>
+                 </g>
+                 <g class="img_p">
+                    <image  x="130" y="20" xlink:href="img/make.jpg" height="50" width="50" ></img>
+                 </g>
+                 <g class="rect">
+                    <rect x="100" y="70" width="100" height="30" fill="#ed5565"></rect>
+                    <text class="block-txt" x="110" y="85" text-anchor="center" alignment-baseline="central">Assembly</text>
+                  </g>
+                   <g class="img_p">img/cook.jpg
+                    <image  x="275" y="20" xlink:href="img/cook.jpg" height="50" width="50" ></img>
+                 </g><g class="rect">
+                      <rect x="250" y="70" width="100" height="30" fill="#ed5565"></rect>
+                    <text class="block-txt" x="260" y="85" text-anchor="center" alignment-baseline="central">Cook</text>  
+                 </g>
+                  <g class="img_p">
+                    <image  x="430" y="23" xlink:href="img/ptdelivery.jpg" height="50" width="50" ></img>
+                 </g>
+                  <g class="rect">
+                      <rect x="400" y="70" width="100" height="30" fill="#ed5565"></rect>
+                    <text class="block-txt" x="410" y="85" text-anchor="center" alignment-baseline="central">P.T.Delivey</text>  
+                 </g> 
+                 <g class="img_p">
+                    <image  x="570" y="20" xlink:href="img/delivery.jpg" height="50" width="50" ></img>
+                 </g>
+                 <g class="rect">
+                      <rect x="500" y="70" width="50" height="30" fill="#f8ac59"></rect>
+                    <text class="block-txt" x="510" y="85" text-anchor="center" alignment-baseline="central">STBY</text>  
+                 </g>
+                  <g class="rect">
+                      <rect x="550" y="70" width="100" height="30" fill="#ed5565"></rect>
+                    <text class="block-txt" x="560" y="85" text-anchor="center" alignment-baseline="central">Delivery</text>  
+                 </g>
+            </svg>
+            <svg height="125" width="700" id="single_task_svg_delivery" ng-show="on_delivery==true"> 
+                 <g class="grid x-grid" id="TimexGrid">
+                    <line x1="50" x2="650" y1="100" y2="100"></line>
+                 </g>
+                 <g class="grid y-grid"  >
+                    <line x1="50" x2="50" y1="130" y2="20"></line>
+                 </g>
+                 <g class="grid y-grid"  >
+                    <line x1="650" x2="650" y1="130" y2="20"></line>
+                 </g>
+                
+                 <g class="img_p">
+                    <image  x="60" y="20" xlink:href="img/delivery.jpg" height="50" width="50" ></img>
+                 </g>
+                 
+                  <g class="rect">
+                      <rect x="50" y="70" width="600" height="30" fill="#ed5565"></rect>
+                    <text id="delivery_time" class="block-txt" x="70" y="85" text-anchor="center" alignment-baseline="central"></text>  
+                 </g>
+            </svg>
+        </div>
+    </div>
+    <div class="col-lg-5 h100">
+<div class="ibox-content  "  style="padding-bottom: 5px" > 
+               <div class="ibox-tools" style="float:right" uib-dropdown>
+                 <a ng-click="close()">
+                    <i class="fa fa-times"></i>
+                </a>
+             </div>
+            <div class="btn-group" style="padding-bottom:10px">
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="map_mode_r" uib-btn-radio="'Map'" ng-click='map_mode("map")' uncheckable="">Map</label>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="map_mode_r" uib-btn-radio="'StreetView'"  ng-click='map_mode(uib-btn-radio)'  uncheckable="">Street View</label> 
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty  "  ng-click="show_map(coords)" >View Big Map</label> 
+ 
+             </div>
+                    </div> 
+                    <section   class="single_task_map" >
+                       
+                        
+                    <div class="single_task_map"><div id="osm_stask"  class="osm_map"    ng-show='map_mode_v==true' ></div> 
+             <!--
+
+
+                        <map trigger-resize='{{resize}}'  style="display:block; width: 100%; height:100%; " ng-if='map_mode_v==true' center='[{{centerx}},{{centery}}]'  zoom='{{zoom}}' map-type-id='{{type}}' >
+                            <marker position='[{{centerx}},{{centery}}]' animation='DROP'  />
+                            <div class="profile-image">
+                             </div>
+                            </custom-marker>
+
+                        </map>-->
+                        <map id="svt"    ng-if='map_mode_v==false' style="display:block; width: 100%; height:100%; "  street-view="StreetViewPanorama(document.querySelector('map#svt'), {position:new google.maps.LatLng({{centerx}},{{centery}})})" />
+                        <!--<div ui-map="map_incoming_order" ></div>-->
+                    </section> 
+                   
+                
+               
+            
+
+            <div class="row m-t-xs">
+         <div class="ibox  pull-right" style="clear: none;width: 50%">
+            <div class="ibox-content ">
+              <h5>Stimated Dlv.Time<small style="float:right;">Delay</small> </h5>   <h2 class="no-margins"><i class="fa fa-clock-o"></i>   {{stimated_delivery_time}}<i class="fa fa-circle text-warning pull-right"></i>
+                <div class=" text-warning" style="float:right;">{{delay_delivery_time}}</div></h2> 
+            </div>
+        </div><div class="ibox  pull-right" style="clear: none;width: 50%">
+            
+            <div class="ibox-content lazur-bg">
+               <h5>Preferred Dlv.Time</h5>   <h2 class="no-margins"><i class="fa fa-clock-o"></i>   {{order_data.preferred_delivery_time}}</h2> 
+            </div>
+        </div>
+       </div>
+            </div>
+    </div>
+    
+    </div>
+</div>
+

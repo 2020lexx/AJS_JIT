@@ -1,0 +1,22 @@
+<div class="map-modal "  >
+    <div class="row wrapper h100 m-b-none no-padding no-margins ibox" >
+    <div class="ibox-content h100 " > 
+                
+              <div class="ibox-tools" style="float:right" uib-dropdown>
+                 <a ng-click="close()">
+                    <i class="fa fa-times"></i>
+                </a>
+             </div>
+            <div class="btn-group" style="padding-bottom:10px">
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="map_mode_r" uib-btn-radio="'Map'" ng-click='map_mode("map")' uncheckable="">Map</label>
+                    <label style="font-weight:100" class="btn-xs btn-default ng-pristine ng-untouched ng-valid ng-not-empty active" ng-model="map_mode_r" uib-btn-radio="'StreetView'"  ng-click='map_mode(uib-btn-radio)'  uncheckable="">Street View</label> 
+                    </div><br>
+                    <section style="height: 80%" > 
+                     <div id='osm_big' ng-show='map_mode_v==true' class="osm_map"  ></div>  
+                        <map id="sv_big"    ng-if='map_mode_v==false' style="display:block; width: 100%; height:100%; "  street-view="StreetViewPanorama(document.querySelector('map#sv_big'), {position:new google.maps.LatLng({{centerx}},{{centery}})})" />
+                        <!--<div ui-map="map_incoming_order" ></div>-->
+                    </section> 
+                
+</div>
+</div>
+</div>

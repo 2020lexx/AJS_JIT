@@ -1,0 +1,120 @@
+<!--/*       
+*  JIT -- index.html
+*                                                       
+* Author:  @pablo                           
+*                                                       
+* Purpose:  main index html       
+*                                                       
+* Version:  1.0.0                                             
+*            
+*/--> 
+<!DOCTYPE html>
+<html ng-app="PB_jit">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+
+    <!-- Font awesome -->
+    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Bootstrap and Fonts -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main  CSS files -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link id="loadBefore" href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller   -->
+<body ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
+<!-- Main view  -->
+<div ui-view ></div>
+
+<!-- Main jQuery -->
+<script src="js/jquery/jquery-2.1.1.min.js"></script>
+
+<!-- Main Angular scripts-->
+<script src="js/angular/angular.min.js"></script>
+<script src="js/angular-translate/angular-translate.min.js"></script>
+
+<!-- jQuery and Bootstrap -->
+<script src="js/angular_plugins/jquery-ui/jquery-ui.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+<!-- angular_plugins -->
+<!-- MetsiMenu -->
+<script src="js/angular_plugins/metisMenu/jquery.metisMenu.js"></script>
+<!-- SlimScroll -->
+<script src="js/angular_plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Peace JS -->
+<script src="js/angular_plugins/pace/pace.min.js"></script>
+<!-- ui router --> 
+<script src="js/angular_plugins/ui-router/angular-ui-router.min.js"></script>
+<!-- modal -->
+<script src="js/angular_plugins/modal-service/angular-modal-service.min.js"></script>
+<!-- street view -->
+<script src="js/angular_plugins/google-maps/ng-map.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script>
+<!-- Toarst -->
+<script src="js/angular_plugins/toasty/angular-toasty.min.js"></script>
+<link href="css/angular_plugins/toasty/angular-toasty.min.css" rel="stylesheet"> 
+<!-- clock -->
+<script src="js/angular_plugins/angular-clock/angular-clock.min.js"></script>
+<link rel="stylesheet" href="css/angular_plugins/angular-clock/angular-clock.css">
+<!-- lazy load -->
+<script src="js/angular_plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+<!-- isotop -->
+<script src="js/isotope/jquery.isotope.min.js"></script>
+<script src="js/angular_plugins/angular-isotope/angular-isotope.min.js"></script>
+<link rel="stylesheet" href="css/angular_plugins/angular-isotope/style.css">  
+<!-- leaflet -->
+<script src="js/leaflet/leaflet.js"></script>
+<script src="js/leaflet/leaflet-awesome-markers/leaflet.awesome-markers.min.js"></script>
+<script src="js/leaflet/leaflet-google/Leaflet.GoogleMutant.js"></script> 
+<script src="js/leaflet/polyline-encoded/polyline.encoded.js"></script> 
+<link rel="stylesheet" href="css/leaflet/leaflet.awesome-markers.css">
+<link rel="stylesheet" href="css/leaflet/leaflet.css"> 
+ 
+
+<!-- Anglar App Script -->
+<script src="components/app.js"></script>
+<script src="components/config.js"></script>
+<script src="components/functions.js"></script>
+<!-- Angular Controllers -->
+<script src="components/common/C_main-controller.js"></script>
+<script src="components/queues/All_Q-controller.js"></script>
+<script src="components/queues/Q1-controller.js"></script>
+<script src="components/queues/Q2-controller.js"></script>
+<script src="components/queues/Q3-controller.js"></script>
+<script src="components/queues_brief/Brief_Q-controller.js"></script>
+<script src="components/full_views/delivery_map-controller.js"></script>
+<script src="components/full_views/single_user_map-controller.js"></script>
+<script src="components/full_views/single_task-controller.js"></script>
+<!-- Angular Factory-->
+<script src="components/common/F_main-factory.js"></script>
+<!-- Angular Directives -->
+<script src="components/queues/All_Q-directives.js"></script>
+<script src="components/common/D_main-directives.js"></script>
+<!-- Angular Services -->
+<script src="components/common/S_main-services.js"></script>
+ 
+<!-- Test Page -->
+<script src="test/test-controller.js"></script>
+<script src="test/queue-debug-controller.js"></script>
+<script src="test/queue-debug-factory.js"></script>
+ 
+ 
+ 
+
+
+</body>
+</html>
